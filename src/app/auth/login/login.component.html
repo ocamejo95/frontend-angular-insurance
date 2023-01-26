@@ -1,1 +1,66 @@
-<p>login works!</p>
+<h1 class="title" id="title">Login</h1>
+<p class="sub-title">Hello! Log in with your email.</p>
+
+<nb-alert *ngIf="errors?.length && !submitted" outline="danger" role="alert">
+  <p class="alert-title"><b>Oh snap!</b></p>
+  <ul class="alert-message-list">
+    <li class="alert-message">{{ errors }}</li>
+  </ul>
+</nb-alert>
+
+<nb-alert *ngIf="submitted" outline="success" role="alert">
+  <p class="alert-title"><b>Hooray!</b></p>
+  <ul class="alert-message-list">
+    <li>Successfully logged in.</li>
+  </ul>
+</nb-alert>
+
+<form (submit)="login()"
+      [formGroup]="loginForm"
+      aria-labelledby="title"
+      autocomplete="on">
+
+  <div class="form-control-group">
+    <label class="label" for="input-email">Email address:</label>
+    <input [status]="loginForm.get('email')?.invalid && loginForm.get('email').touched ? 'danger' : 'basic'"
+           formControlName="email" fullWidth
+           id="input-email" name="email" nbInput
+           pattern=".+@.+\..+"
+           placeholder="Email address">
+    <ng-container *ngIf="loginForm.get('email')?.invalid && loginForm.get('email').touched">
+      <p *ngIf="loginForm.get('email').errors?.required" class="caption status-danger">
+        Email is required!
+      </p>
+      <p *ngIf="loginForm.get('email').errors?.pattern" class="caption status-danger">
+        Email should be the real one!
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-control-group">
+    <label class="label" for="input-password">Password:</label>
+    <input [status]="loginForm.get('password')?.invalid && loginForm.get('password').touched ? 'danger' : 'basic'"
+           formControlName="password" fullWidth
+           id="input-password" name="password" nbInput placeholder="Password"
+           type="password">
+    <ng-container *ngIf="loginForm.get('password')?.invalid && loginForm.get('password').touched">
+      <p *ngIf="loginForm.get('password').errors?.required" class="caption status-danger">
+        Password is required!
+      </p>
+      <p *ngIf="loginForm.get('password').errors?.minlength || loginForm.get('password').errors?.maxlength"
+         class="caption status-danger">
+        Password Must Contain(6-20)!
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-control-group accept-group">
+    <nb-checkbox formControlName="rememberme" name="rememberMe">Remember me</nb-checkbox>
+  </div>
+
+  <button [disabled]="loginForm.invalid" fullWidth nbButton status="success" type="submit">Sign In</button>
+</form>
+
+<section aria-label="Register" class="another-action">
+  Don't have an account? <a class="text-link" routerLink="/auth/register">Sign Up</a>
+</section>
