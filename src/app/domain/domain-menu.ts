@@ -1,45 +1,57 @@
-import { NbMenuItem } from '@nebular/theme';
+import {NbMenuItem} from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'E-commerce',
-    icon: 'shopping-cart-outline',
-    link: '/pages/dashboard',
+    title: 'Dashboard',
+    icon: 'home-outline',
+    link: '/domain/dashboard',
     home: true,
   },
   {
-    title: 'IoT Dashboard',
-    icon: 'home-outline',
-    link: '/pages/iot-dashboard',
-  },
-  {
-    title: 'FEATURES',
+    title: 'COMPANYS',
     group: true,
   },
   {
-    title: 'Layout',
+    title: 'Company',
     icon: 'layout-outline',
     children: [
       {
-        title: 'Stepper',
-        link: '/pages/layout/stepper',
+        title: 'Clients Only in Sherpa',
+        link: '/pages/company/indicador-1',
       },
       {
-        title: 'List',
-        link: '/pages/layout/list',
+        title: 'Clients Only CS',
+        link: '/pages/company/indicador-2',
       },
       {
-        title: 'Infinite List',
-        link: '/pages/layout/infinite-list',
+        title: 'Clients Only in Sherpa',
+        link: '/pages/company/indicador-3',
       },
       {
-        title: 'Accordion',
-        link: '/pages/layout/accordion',
+        title: 'InformClientsCSgood',
+        link: '/pages/company/indicador-4',
       },
       {
-        title: 'Tabs',
-        pathMatch: 'prefix',
-        link: '/pages/layout/tabs',
+        title: 'FindElementsRepeatDate',
+        link: '/pages/company/indicador-5',
+      },
+    ],
+  },
+  {
+    title: 'Security',
+    group: true,
+  },
+  {
+    title: 'Admin',
+    icon: 'layout-outline',
+    children: [
+      {
+        title: 'Manage Users',
+        link: '/pages/seguridad/manage-users',
+      },
+      {
+        title: 'Manage Roles',
+        link: '/pages/seguridad/manage-roles',
       },
     ],
   },

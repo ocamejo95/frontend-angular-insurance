@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-lg-8">
+    <nb-card>
+      <nb-card-header>Upload Files</nb-card-header>
+      <nb-card-body>
+        <form [formGroup]="uploadFilesForm">
+          <div class="form-group">
+            <label class="label">Insurance Company Book of Bussines(BOB)</label>
+            <input (change)="catchFile1($event)" formControlName="fil1"
+                   fullWidth nbInput type="file">
+            <!--            <ng-container>-->
+            <!--              <p class="caption status-danger" *ngIf="uploadFilesForm.get('fil1').errors?.required">File 1 es required</p>-->
+            <!--            </ng-container>-->
+          </div>
+          <div class="form-group">
+            <label class="label">Insurance Company Commission Statement(CS)</label>
+            <input (change)="catchFile2($event)" formControlName="fil2"
+                   fullWidth nbInput type="file">
+          </div>
+          <div class="form-group">
+            <label class="label">Sherpa File</label>
+            <input (change)="catchFile3($event)" formControlName="fil3"
+                   fullWidth nbInput type="file">
+          </div>
+
+          <button (click)="submitFiles()" [disabled]="uploadFilesForm.invalid" nbButton status="primary" type="submit">
+            Submit
+          </button>
+
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="col-lg-4">
+    <nb-card>
+      <nb-card-header>Select Company</nb-card-header>
+      <nb-card-body>
+        <nb-select selected="1">
+          <nb-option value="1">Ambetter</nb-option>
+        </nb-select>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

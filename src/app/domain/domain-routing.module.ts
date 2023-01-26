@@ -12,6 +12,16 @@ const routes: Routes = [
         path: 'dashboard',
         component: DashboardComponent,
       },
+      {
+        path: 'company',
+        loadChildren: () => import('./company/company.module')
+          .then(m => m.CompanyModule),
+      },
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full',
+      },
     ],
   },
 ];
