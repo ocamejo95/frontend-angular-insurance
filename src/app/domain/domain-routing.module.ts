@@ -20,6 +20,16 @@ const routes: Routes = [
           .then(m => m.CompanyModule),
       },
       {
+        path: 'perfil-usuario',
+        loadChildren: () => import('./perfil-usuario/perfil-usuario.module')
+          .then(m => m.PerfilUsuarioModule),
+      },
+      {
+        path: 'seguridad',
+        loadChildren: () => import('./seguridad/seguridad.module')
+          .then(m => m.SeguridadModule),
+      },
+      {
         path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full',

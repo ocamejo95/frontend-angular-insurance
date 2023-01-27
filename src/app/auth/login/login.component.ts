@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {AuthService} from '../services/auth.service';
 import {Router} from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'ngx-login',
@@ -12,7 +13,6 @@ export class LoginComponent implements OnInit {
   passwordRegex: string = '((?=.*\d)(?=.*[a-zA-Z]).{4,20})';
   remember: boolean = false;
   submitted = false;
-  errors: string;
   public loginForm = this.formBuilder.group({
     email: ['', [Validators.required, Validators.pattern('.+@.+\..+')]],
     password: ['', [
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/domain']);
         },
         err => {
-          this.errors = err.error.message;
+          Swal.fire('Oops...', err.error.message, 'error');
         });
   }
 

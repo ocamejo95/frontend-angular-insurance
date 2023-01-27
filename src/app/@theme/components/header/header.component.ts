@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   currentTheme = 'default';
 
   userMenu = [
-    {title: 'My Profile', link: '/domain/perfil-user/profile', icon: 'person-outline'},
+    {title: 'My Profile', link: '/domain/perfil-usuario/profile', icon: 'person-outline'},
     {title: 'Log out', link: '/auth/login', data: {id: 'logout'}, icon: 'arrow-circle-right-outline'},
   ];
 

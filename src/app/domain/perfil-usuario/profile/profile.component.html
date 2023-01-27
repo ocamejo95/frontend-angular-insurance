@@ -1,0 +1,126 @@
+<div class="row">
+  <div class="col-lg-5">
+    <nb-card>
+      <nb-card-body>
+        <div class="card-profile">
+          <img alt="Profile" class="rounded-circle"
+               src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+          <h5>{{ usuario.name }}</h5>
+          <p>{{ usuario.username }}</p>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="col-lg-7">
+    <nb-card size="small">
+      <nb-tabset>
+        <nb-tab class="animate__animated animate__fadeIn mt-2" tabTitle="Overview">
+          <h5 class="card-title">Profile Details</h5>
+          <div class="row">
+            <div class="col-lg-3 col-md-4 label ">Full Name:</div>
+            <div class="col-lg-9 col-md-8"><p>{{ usuario.name }}</p></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-3 col-md-4 label ">Username:</div>
+            <div class="col-lg-9 col-md-8"><p>{{ usuario.username }}</p></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-3 col-md-4 label ">Email:</div>
+            <div class="col-lg-9 col-md-8"><p>{{ usuario.email }}</p></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-3 col-md-4 label ">Role:</div>
+            <div class="col-lg-9 col-md-8"><p>Vacio</p></div>
+          </div>
+        </nb-tab>
+
+        <nb-tab class="animate__animated animate__fadeIn mt-2" tabTitle="Edit Profile">
+          <form (submit)="edituser()"
+                [formGroup]="perfilForm"
+                autocomplete="off">
+            <div class="form-group row">
+              <label class="label col-sm-3 col-form-label" for="inputName">Full name</label>
+              <div class="col-sm-9">
+                <input formControlName="name" fullWidth id="inputName" nbInput placeholder="Full name" type="text">
+                <ng-container *ngIf="perfilForm.get('name')?.invalid && perfilForm.get('name').touched">
+                  <p *ngIf="perfilForm.get('name').errors?.required" class="caption status-danger">
+                    Full name is required!
+                  </p>
+                </ng-container>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="label col-sm-3 col-form-label" for="inputUsername">Username</label>
+              <div class="col-sm-9">
+                <input formControlName="username" fullWidth id="inputUsername" nbInput placeholder="Username"
+                       type="text">
+                <ng-container *ngIf="perfilForm.get('username')?.invalid && perfilForm.get('username').touched">
+                  <p *ngIf="perfilForm.get('username').errors?.required" class="caption status-danger">
+                    Username is required!
+                  </p>
+                </ng-container>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="label col-sm-3 col-form-label" for="inputEmail">Email</label>
+              <div class="col-sm-9">
+                <input formControlName="email" fullWidth id="inputEmail" nbInput placeholder="Email" type="text">
+                <ng-container *ngIf="perfilForm.get('email')?.invalid && perfilForm.get('email').touched">
+                  <p *ngIf="perfilForm.get('email').errors?.required" class="caption status-danger">
+                    Email is required!
+                  </p>
+                </ng-container>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="offset-sm-3 col-sm-9">
+                <button [disabled]="perfilForm.invalid" class="mb-5" nbButton status="primary" type="submit">Submit
+                </button>
+              </div>
+            </div>
+          </form>
+        </nb-tab>
+
+        <nb-tab class="animate__animated animate__fadeIn mt-2" tabTitle="Change Password">
+          <form
+            (submit)="cambiarPassword()"
+            [formGroup]="passwordForm">
+            <div class="form-group row">
+              <label class="label col-sm-3 col-form-label" for="inputCurrent">Current Password</label>
+              <div class="col-sm-9">
+                <input formControlName="c_password" fullWidth id="inputCurrent" nbInput placeholder="Current Password"
+                       type="password">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="label col-sm-3 col-form-label" for="inputPassword2">New Password</label>
+              <div class="col-sm-9">
+                <input formControlName="password" fullWidth id="inputPassword2" nbInput placeholder="New Password"
+                       type="password">
+                <ng-container *ngIf="passwordForm.get('password')?.invalid && passwordForm.get('password').touched">
+                  <p *ngIf="passwordForm.get('password').errors?.required" class="caption status-danger">
+                    Password is required!
+                  </p>
+                </ng-container>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="label col-sm-3 col-form-label" for="inputPassword2">Re-enter New Password</label>
+              <div class="col-sm-9">
+                <input formControlName="r_password" fullWidth id="inputPassword3" nbInput
+                       placeholder="Re-enter New Password" type="password">
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="offset-sm-3 col-sm-9">
+                <button [disabled]="passwordForm.invalid" nbButton status="primary" type="submit">Change Password
+                </button>
+              </div>
+            </div>
+          </form>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+  </div>
+</div>

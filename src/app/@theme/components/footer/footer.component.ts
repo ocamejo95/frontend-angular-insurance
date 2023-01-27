@@ -7,12 +7,12 @@ import {Component} from '@angular/core';
     <span class="created-by">
     &copy; {{ year }} <strong><span>Orel Perez Camejo</span></strong>. All Rights Reserved
     </span>
-    <div class="socials">
-      <a href="#" target="_blank" class="ion ion-social-github"></a>
-      <a href="#" target="_blank" class="ion ion-social-facebook"></a>
-      <a href="#" target="_blank" class="ion ion-social-twitter"></a>
-      <a href="#" target="_blank" class="ion ion-social-linkedin"></a>
-    </div>
+    <!--    <div class="socials">-->
+    <!--      <a href="#" target="_blank" class="ion ion-social-github"></a>-->
+    <!--      <a href="#" target="_blank" class="ion ion-social-facebook"></a>-->
+    <!--      <a href="#" target="_blank" class="ion ion-social-twitter"></a>-->
+    <!--      <a href="#" target="_blank" class="ion ion-social-linkedin"></a>-->
+    <!--    </div>-->
   `,
 })
 export class FooterComponent {

@@ -1,13 +1,6 @@
 <h1 class="title" id="title">Login</h1>
 <p class="sub-title">Hello! Log in with your email.</p>
 
-<nb-alert *ngIf="errors?.length && !submitted" outline="danger" role="alert">
-  <p class="alert-title"><b>Oh snap!</b></p>
-  <ul class="alert-message-list">
-    <li class="alert-message">{{ errors }}</li>
-  </ul>
-</nb-alert>
-
 <nb-alert *ngIf="submitted" outline="success" role="alert">
   <p class="alert-title"><b>Hooray!</b></p>
   <ul class="alert-message-list">
