@@ -16,7 +16,7 @@ export class AuthService {
   }
 
   login(formData: any) {
-    return this.http.post(`${environment.API_INTERNET}/login`, formData)
+    return this.http.post(`${environment.API_INTERNET}/auth/login`, formData)
       .pipe(
         tap((resp: any) => {
           localStorage.setItem('token', resp.token);
@@ -25,11 +25,11 @@ export class AuthService {
   }
 
   register(formData: any) {
-    return this.http.post(`${environment.API_INTERNET}/user`, formData);
+    return this.http.post(`${environment.API_INTERNET}/user/create`, formData);
   }
 
   validarToken() {
-    return this.http.get(`${environment.API_INTERNET}/renew`)
+    return this.http.get(`${environment.API_INTERNET}/auth/renew`)
       .pipe(
         map((resp: any) => {
           this.usuario = resp.usuario;

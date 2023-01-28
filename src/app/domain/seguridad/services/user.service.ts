@@ -15,11 +15,11 @@ export class UserService {
   }
 
   getUserById(id: string): Observable<any> {
-    return this.http.get(`${environment.API_INTERNET}/${id}`);
+    return this.http.get(`${environment.API_INTERNET}/user/${id}`);
   }
 
   updateUser(id, user): Observable<any> {
-    return this.http.put(`${environment.API_INTERNET}/user/${id}`, user);
+    return this.http.put(`${environment.API_INTERNET}/user/update/${id}`, user);
   }
 
   deleteUser(id: string): Observable<any> {

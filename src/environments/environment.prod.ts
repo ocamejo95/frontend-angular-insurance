@@ -5,5 +5,5 @@
  */
 export const environment = {
   production: true,
-  API_INTERNET: 'https://backend-express-seguros.herokuapp.com',
+  API_INTERNET: 'https://backend-express-seguros.herokuapp.com/api',
 };

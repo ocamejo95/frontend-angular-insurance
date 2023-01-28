@@ -21,7 +21,7 @@ export class UploadFilesService {
     formularioDatos.append('companyComm', data2);
     formularioDatos.append('sherpa', data3);
 
-    return this.http.post(`${environment.API_INTERNET}${url}`, formularioDatos).subscribe((response: any) => {
+    return this.http.post(`${environment.API_INTERNET}/file/${url}`, formularioDatos).subscribe((response: any) => {
       this.list = response.message;
       this.toastrService.success('Upload Files Successfully!', 'Done!');
       this.router.navigate(['/domain/company/table-1']);
