@@ -37,22 +37,18 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
-  // {
-  //   title: 'Security',
-  //   group: true,
-  // },
-  // {
-  //   title: 'Admin',
-  //   icon: 'layout-outline',
-  //   children: [
-  //     {
-  //       title: 'Manage Users',
-  //       link: '/pages/seguridad/manage-users',
-  //     },
-  //     {
-  //       title: 'Manage Roles',
-  //       link: '/pages/seguridad/manage-roles',
-  //     },
-  //   ],
-  // },
+  {
+    title: 'Security',
+    group: true,
+  },
+  {
+    title: 'Admin',
+    icon: 'layout-outline',
+    children: [
+      {
+        title: 'Manage Users',
+        link: '/domain/seguridad/manage-users',
+      },
+    ],
+  },
 ];

@@ -1,0 +1,52 @@
+<nb-card *ngIf="ifShow" class="animate__animated animate__fadeIn">
+  <nb-card-header>
+    {{ title }}
+  </nb-card-header>
+  <nb-card-body>
+    <form
+      [formGroup]="createUserForm">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="label" for="exampleInputEmail1">Full Name</label>
+            <input formControlName="name" fullWidth id="exampleInputName" nbInput placeholder="Name" type="name">
+          </div>
+          <div class="form-group">
+            <label class="label" for="exampleInputEmail1">Username</label>
+            <input formControlName="username" fullWidth id="exampleInputUsername" nbInput placeholder="Username"
+                   type="username">
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="label" for="exampleInputEmail1">Email address</label>
+            <input formControlName="email" fullWidth id="exampleInputEmail1" nbInput placeholder="Email" type="email">
+          </div>
+          <div class="form-group">
+            <label class="label" for="exampleInputPassword1">Password</label>
+            <input formControlName="password" fullWidth id="exampleInputPassword1" nbInput placeholder="Password"
+                   type="password">
+          </div>
+        </div>
+        <div class="col-md-12">
+          <button (click)="this.createUserForm.get('id').value !== null ? submitUpdate() : submitCreate() " nbButton status="primary">Submit</button>
+          <button (click)="cancel()" class="cancel" nbButton status="danger">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>
+
+
+<nb-card>
+  <nb-card-header>
+    Manage Users
+  </nb-card-header>
+  <nb-card-body>
+    <ng2-smart-table (create)="openForm()" (delete)="onDeleteConfirm($event)" (edit)="onUpdateConfirm($event)"
+                     [settings]="settings"
+                     [source]="source">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

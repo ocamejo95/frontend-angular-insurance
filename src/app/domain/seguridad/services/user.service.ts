@@ -11,7 +11,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getAllUser(): Observable<any> {
-    return this.http.get(`${environment.API_INTERNET}/user`);
+    return this.http.get(`${environment.API_INTERNET}/user/all`);
   }
 
   getUserById(id: string): Observable<any> {
@@ -23,7 +23,7 @@ export class UserService {
   }
 
   deleteUser(id: string): Observable<any> {
-    return this.http.delete(`${environment.API_INTERNET}/user/${id}`);
+    return this.http.delete(`${environment.API_INTERNET}/user/delete/${id}`);
   }
 
   changePassword(id: string, data): Observable<any> {
