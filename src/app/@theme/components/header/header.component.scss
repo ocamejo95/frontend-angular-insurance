@@ -24,7 +24,7 @@
   }
 
   ::ng-deep nb-search button {
-    padding: 0!important;
+    padding: 0 !important;
   }
 
   .header-container {
@@ -37,6 +37,7 @@
       @include nb-rtl(padding-left, 1.25rem);
       text-decoration: none;
       color: nb-theme(text-hint-color);
+
       nb-icon {
         font-size: 1.75rem;
       }
@@ -44,11 +45,12 @@
 
     .logo {
       padding: 0 1.25rem;
-      font-size: 1.75rem;
+      font-size: 22px;
       @include nb-ltr(border-left, 1px solid nb-theme(divider-color));
       @include nb-rtl(border-right, 1px solid nb-theme(divider-color));
       white-space: nowrap;
       text-decoration: none;
+      text-transform: uppercase;
     }
   }
 
@@ -67,4 +69,9 @@
       display: none;
     }
   }
+}
+
+img {
+  width: 21px;
+  margin-right: 8px;
 }

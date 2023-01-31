@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {UploadFilesService} from '../../company/services/upload-files.service';
 
@@ -19,7 +19,8 @@ export class UploadFilesComponent implements OnInit {
   });
 
   constructor(private uploadFilesService: UploadFilesService,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder) {
+  }
 
   ngOnInit(): void {
   }
@@ -37,7 +38,9 @@ export class UploadFilesComponent implements OnInit {
   }
 
   submitFiles() {
-    this.uploadFilesService.sendFiles(this.file1, this.file2, this.file3);
+    if (this.uploadFilesForm.valid) {
+      this.uploadFilesService.sendFiles(this.file1, this.file2, this.file3);
+    }
   }
 
 }

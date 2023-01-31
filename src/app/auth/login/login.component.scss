@@ -3,6 +3,19 @@
   margin-bottom: 2rem;
 }
 
-//::ng-deep .nb-theme-default  nb-card-header {
-//  display: none !important;
-//}
+::ng-deep nb-auth nb-card-header {
+  display: none !important;
+}
+.logo-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.img {
+  width: 280px;
+  margin-bottom: auto;
+
+}
+
