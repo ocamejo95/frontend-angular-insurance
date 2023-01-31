@@ -76,7 +76,7 @@ export class GestionarUsuarioComponent implements OnInit {
   getListUser() {
     this.userService.getAllUser()
       .subscribe(resp => {
-        this.source = resp.resultFind;
+        this.source = resp.listUsers;
       });
   }
 

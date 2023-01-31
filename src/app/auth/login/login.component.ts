@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {AuthService} from '../services/auth.service';
 import {Router} from '@angular/router';
@@ -26,7 +26,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private formBuilder: FormBuilder,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     const email = localStorage.getItem('email') || '';
@@ -45,20 +46,24 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    if (this.loginForm.value.rememberme) {
-      localStorage.setItem('email', this.loginForm.value.email);
-    } else {
-      localStorage.removeItem('email');
-    }
+    if (this.loginForm.valid) {
+      if (this.loginForm.value.rememberme) {
+        localStorage.setItem('email', this.loginForm.value.email);
+      } else {
+        localStorage.removeItem('email');
+      }
 
-    this.authService.login(this.loginForm.value)
-      .subscribe((resp: any) => {
-          this.submitted = true;
-          this.router.navigate(['/domain']);
-        },
-        err => {
-          Swal.fire('Oops...', err.error.message, 'error');
-        });
+      this.authService.login(this.loginForm.value)
+        .subscribe((resp: any) => {
+            this.submitted = true;
+            this.router.navigate(['/domain']);
+          },
+          err => {
+            Swal.fire('Oops...', err.error.message, 'error');
+          });
+    } else {
+      this.loginForm.markAllAsTouched();
+    }
   }
 
 }

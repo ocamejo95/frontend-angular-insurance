@@ -28,14 +28,18 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    this.authService.register(this.registerForm.value)
-      .subscribe(resp => {
-          this.router.navigate(['/auth/login']);
-        },
-        err => {
-          Swal.fire('Oops...', err.error.message, 'error');
-        })
-    ;
+    if (this.registerForm.valid) {
+      this.authService.register(this.registerForm.value)
+        .subscribe(resp => {
+            this.router.navigate(['/auth/login']);
+          },
+          err => {
+            Swal.fire('Oops...', err.error.message, 'error');
+          })
+      ;
+    } else {
+      this.registerForm.markAllAsTouched();
+    }
   }
 
 }
